@@ -72,9 +72,39 @@ garpike and stingray are also present."""
 selected_text = input("Enter a number from 1 to 3:")
 if selected_text.isnumeric() and int(selected_text) <= len(TEXTS):
     analyzed_text = TEXTS[int(selected_text)]
-    print(analyzed_text)
 else: 
     print(f"""{separator}
           \n Terminating the program."""
           )    
     
+# stats  
+cleaned_text = list()
+for word in analyzed_text.split():
+    cleaned_text.append(word.strip(".,:;"))
+
+word_count = len(cleaned_text)
+
+titlecase_words = list()
+uppercase_words = list()
+lowercase_words = list()
+numbers = list()
+
+for word in cleaned_text:
+    if word.istitle():
+        titlecase_words.append(word)
+    elif word.isupper():
+        uppercase_words.append(word)
+    elif word.islower():
+        lowercase_words.append(word)  
+    elif word.isnumeric():
+        numbers.append(word)
+
+titlecase_word_count = len(titlecase_words)
+uppercase_word_count = len(uppercase_words)
+lowercase_word_count = len(lowercase_words)
+numbers_count = len(numbers)
+numbers_sum = sum(int(number) for number in numbers)
+print(numbers_sum)
+
+# for number in numbers:
+#     int(number)
