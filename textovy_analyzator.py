@@ -29,15 +29,15 @@ for user in registered_users:
         break
 
 if user_found:
-    print(f"""{separator}
-          \n Welcome to the app, {login_name.capitalize()}!
-          \n We have 3 texts to be analyzed.
-          \n {separator} """
+    print(f"""\n{separator}
+          \nWelcome to the app, {login_name.capitalize()}!
+          \nWe have 3 texts to be analyzed.
+          \n{separator}\n"""
           )
    
 else:
-    print(f"""{separator}
-          \n Terminating the program."""
+    print(f"""\n{separator}
+          \nTerminating the program."""
           )    
 
 # texts    
@@ -71,10 +71,10 @@ garpike and stingray are also present."""
 
 selected_text = input("Enter a number from 1 to 3:")
 if selected_text.isnumeric() and int(selected_text) <= len(TEXTS):
-    analyzed_text = TEXTS[int(selected_text)]
+    analyzed_text = TEXTS[int(selected_text) - 1]
 else: 
     print(f"""{separator}
-          \n Terminating the program."""
+          Unregistered user. Terminating the program."""
           )    
     
 # stats  
@@ -104,7 +104,29 @@ uppercase_word_count = len(uppercase_words)
 lowercase_word_count = len(lowercase_words)
 numbers_count = len(numbers)
 numbers_sum = sum(int(number) for number in numbers)
-print(numbers_sum)
 
-# for number in numbers:
-#     int(number)
+print(f"""
+There are {word_count} words in the selected text.
+There are {titlecase_word_count} titlecase words.
+There are {uppercase_word_count} uppercase words.
+There are {lowercase_word_count} lowercase words.
+There are {numbers_count} numeric strings.
+The sum of all the numbers is: {numbers_sum}.
+\n{separator}\n"""
+)
+
+# bar chart
+print(" LEN |    OCCURENCE    | COUNT")
+print(separator)
+word_lenghts = dict()
+for word in cleaned_text:
+    word_lenght = len(word)
+    if word_lenght not in word_lenghts:
+        word_lenghts[word_lenght] = 1
+    else:
+        word_lenghts[word_lenght] = word_lenghts[word_lenght] + 1    
+
+for lenght,count in sorted(word_lenghts.items()):
+    occurence = "*" * int(lenght)
+    print(f"{lenght: > 4} | {occurence: <15} | {count}")         
+
