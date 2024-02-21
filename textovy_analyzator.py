@@ -84,15 +84,15 @@ for word in analyzed_text.split():
 
 word_count = len(cleaned_text)
 
-titlecase_words = list()
+titlecase_words = [word for word in cleaned_text if word.istitle()]
 uppercase_words = list()
 lowercase_words = list()
 numbers = list()
 
 for word in cleaned_text:
-    if word.istitle():
-        titlecase_words.append(word)
-    elif word.isupper():
+    # if word.istitle():
+    #     titlecase_words.append(word)
+    if word.isupper():
         uppercase_words.append(word)
     elif word.islower():
         lowercase_words.append(word)  
