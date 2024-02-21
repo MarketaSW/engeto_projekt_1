@@ -85,19 +85,9 @@ for word in analyzed_text.split():
 word_count = len(cleaned_text)
 
 titlecase_words = [word for word in cleaned_text if word.istitle()]
-uppercase_words = list()
-lowercase_words = list()
-numbers = list()
-
-for word in cleaned_text:
-    # if word.istitle():
-    #     titlecase_words.append(word)
-    if word.isupper():
-        uppercase_words.append(word)
-    elif word.islower():
-        lowercase_words.append(word)  
-    elif word.isnumeric():
-        numbers.append(word)
+uppercase_words = [word for word in cleaned_text if word.isupper()]
+lowercase_words = [word for word in cleaned_text if word.islower()]
+numbers = [word for word in cleaned_text if word.isnumeric()]
 
 titlecase_word_count = len(titlecase_words)
 uppercase_word_count = len(uppercase_words)
@@ -116,7 +106,7 @@ The sum of all the numbers is: {numbers_sum}.
 )
 
 # bar chart
-print(" LEN |    OCCURENCE    | COUNT")
+print(" LEN |      OCCURENCE       | COUNT")
 print(separator)
 word_lenghts = dict()
 for word in cleaned_text:
@@ -127,6 +117,6 @@ for word in cleaned_text:
         word_lenghts[word_lenght] = word_lenghts[word_lenght] + 1    
 
 for lenght,count in sorted(word_lenghts.items()):
-    occurence = "*" * int(lenght)
-    print(f"{lenght: > 4} | {occurence: <15} | {count}")         
+    occurence = "*" * int(count)
+    print(f"{lenght: > 4} | {occurence: <20} | {count}")         
 
