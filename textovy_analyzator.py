@@ -114,7 +114,7 @@ for word in cleaned_text:
     if word_lenght not in word_lenghts:
         word_lenghts[word_lenght] = 1
     else:
-        word_lenghts[word_lenght] = word_lenghts[word_lenght] + 1    
+        word_lenghts[word_lenght] += 1    
 
 for lenght,count in sorted(word_lenghts.items()):
     occurence = "*" * int(count)
