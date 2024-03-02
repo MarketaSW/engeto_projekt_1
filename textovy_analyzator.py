@@ -33,12 +33,12 @@ if user_found:
           \nWelcome to the app, {login_name.capitalize()}!
           \nWe have 3 texts to be analyzed.
           \n{separator}\n"""
-          )
-   
-else:
-    print(f"""\n{separator}
-          \nTerminating the program."""
-          )    
+          )   
+else: 
+    print(f"""{separator}
+          Unregistered user. Terminating the program."""
+          ) 
+    sys.exit()    
 
 # texts    
 TEXTS = ["""
@@ -69,14 +69,15 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present."""
 ]
 
-selected_text = input("Enter a number from 1 to 3:")
-if selected_text.isnumeric() and int(selected_text) <= len(TEXTS):
-    analyzed_text = TEXTS[int(selected_text) - 1]
-else: 
-    print(f"""{separator}
-          Unregistered user. Terminating the program."""
-          ) 
-    sys.exit()   
+while user_found == True:
+    selected_text = input("Enter a number from 1 to 3:")
+    if selected_text.isnumeric() and int(selected_text) <= len(TEXTS):
+        analyzed_text = TEXTS[int(selected_text) - 1]
+        break
+    else:
+        print("Try again.")
+        continue    
+    
     
 # stats  
 cleaned_text = list()
