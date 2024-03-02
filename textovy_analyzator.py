@@ -5,26 +5,24 @@ author: Markéta Svěráková Wallo
 email: marketa.wallo@gmail.com
 discord: marketasverakova_37252
 """
-# import ...
-
 separator = "-" * 50
 
 # login
-registered_users = [
-    {"name": "bob", "password": "123"},
-    {"name": "ann", "password": "pass123"},
-    {"name": "mike", "password": "password123"},
-    {"name": "liz", "password": "pass123"},
-]
+registered_users = {
+    "bob": "123",
+    "ann": "pass123",
+    "mike": "password123",
+    "liz": "pass123",
+    }
 
 login_name = input("Name:")
 login_password = input("Password:")
 
 user_found = False
 
-for user in registered_users:
-    if (user["name"] == login_name.lower() and
-        user["password"] == login_password.lower()):
+for name, password in registered_users.items():
+    if (name == login_name and
+        password == login_password):
         user_found = True
         break
 
@@ -114,7 +112,7 @@ for word in cleaned_text:
     if word_lenght not in word_lenghts:
         word_lenghts[word_lenght] = 1
     else:
-        word_lenghts[word_lenght] += 1    
+        word_lenghts[word_lenght] += 1 
 
 for lenght,count in sorted(word_lenghts.items()):
     occurence = "*" * int(count)
