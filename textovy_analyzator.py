@@ -77,8 +77,7 @@ while user_found == True:
     else:
         print("Try again.")
         continue    
-    
-    
+        
 # stats  
 cleaned_text = list()
 for word in analyzed_text.split():
