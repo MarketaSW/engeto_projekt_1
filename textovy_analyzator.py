@@ -5,6 +5,8 @@ author: Markéta Svěráková Wallo
 email: marketa.wallo@gmail.com
 discord: marketasverakova_37252
 """
+import sys
+
 separator = "-" * 50
 
 # login
@@ -73,7 +75,8 @@ if selected_text.isnumeric() and int(selected_text) <= len(TEXTS):
 else: 
     print(f"""{separator}
           Unregistered user. Terminating the program."""
-          )    
+          ) 
+    sys.exit()   
     
 # stats  
 cleaned_text = list()
