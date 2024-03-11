@@ -22,11 +22,8 @@ login_password = input("Password:")
 
 user_found = False
 
-for name, password in registered_users.items():
-    if (name == login_name and
-        password == login_password):
-        user_found = True
-        break
+if login_name in registered_users and registered_users[login_name] == login_password:
+    user_found = True
 
 if user_found:
     print(f"""\n{separator}
@@ -69,14 +66,13 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present."""
 ]
 
-while user_found == True:
+while True:
     selected_text = input("Enter a number from 1 to 3:")
     if selected_text.isnumeric() and int(selected_text) <= len(TEXTS):
         analyzed_text = TEXTS[int(selected_text) - 1]
         break
     else:
-        print("Try again.")
-        continue    
+        print("Try again.")   
         
 # stats  
 cleaned_text = list()
