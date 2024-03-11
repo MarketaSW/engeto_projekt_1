@@ -116,10 +116,16 @@ The sum of all the numbers is: {numbers_sum}.
 )
 
 # bar chart
-print(" LEN |      OCCURENCE       | COUNT")
+occurence_width = max(word_lenghts.values())
+print(f"{"LEN": >4} | {"OCCURENCE": ^{occurence_width}} | COUNT")
 print(separator)
-
 for lenght,count in sorted(word_lenghts.items()):
-    occurence = "*" * int(count)
-    print(f"{lenght: > 4} | {occurence: <20} | {count}")         
+    print(f"{lenght: >4} | {("*" * count): <{occurence_width}} | {count}")
 
+
+# print(" LEN |      OCCURENCE       | COUNT")
+# print(separator)
+
+# for lenght,count in sorted(word_lenghts.items()):
+#     occurence = "*" * int(count)
+#     print(f"{lenght: > 4} | {occurence: <20} | {count}")         
