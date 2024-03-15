@@ -68,7 +68,7 @@ garpike and stingray are also present."""
 
 while True:
     selected_text = input("Enter a number from 1 to 3:")
-    if selected_text.isnumeric() and int(selected_text) <= len(TEXTS):
+    if selected_text.isnumeric() and 1 <= int(selected_text) <= len(TEXTS):
         analyzed_text = TEXTS[int(selected_text) - 1]
         break
     else:
@@ -117,15 +117,10 @@ The sum of all the numbers is: {numbers_sum}.
 
 # bar chart
 occurence_width = max(word_lenghts.values())
+
 print(f"{"LEN": >4} | {"OCCURENCE": ^{occurence_width}} | COUNT")
 print(separator)
 for lenght,count in sorted(word_lenghts.items()):
-    print(f"{lenght: >4} | {("*" * count): <{occurence_width}} | {count}")
+    print(f"{lenght: >4} | {("*" * count): <{occurence_width}} | {count}")       
 
-
-# print(" LEN |      OCCURENCE       | COUNT")
-# print(separator)
-
-# for lenght,count in sorted(word_lenghts.items()):
-#     occurence = "*" * int(count)
-#     print(f"{lenght: > 4} | {occurence: <20} | {count}")         
+print("{:>4} | {:^{occurence_width}} | {}".format("LEN", "OCCURENCE", "COUNT"))
