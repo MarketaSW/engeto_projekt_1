@@ -121,6 +121,4 @@ occurence_width = max(word_lenghts.values())
 print(f"{"LEN": >4} | {"OCCURENCE": ^{occurence_width}} | COUNT")
 print(separator)
 for lenght,count in sorted(word_lenghts.items()):
-    print(f"{lenght: >4} | {("*" * count): <{occurence_width}} | {count}")       
-
-print("{:>4} | {:^{occurence_width}} | {}".format("LEN", "OCCURENCE", "COUNT"))
+    print(f"{lenght: >4} | {("*" * count): <{occurence_width}} | {count}")
