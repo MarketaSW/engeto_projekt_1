@@ -20,12 +20,7 @@ registered_users = {
 login_name = input("Name:")
 login_password = input("Password:")
 
-user_found = False
-
 if login_name in registered_users and registered_users[login_name] == login_password:
-    user_found = True
-
-if user_found:
     print(f"""\n{separator}
           \nWelcome to the app, {login_name.capitalize()}!
           \nWe have 3 texts to be analyzed.
@@ -33,7 +28,7 @@ if user_found:
           )   
 else: 
     print(f"""{separator}
-          Unregistered user. Terminating the program."""
+Unregistered user. Terminating the program."""
           ) 
     sys.exit()    
 
@@ -88,7 +83,7 @@ numbers = list()
 word_lenghts = dict()
 
 for word in cleaned_text:
-    if word.istitle():
+    if word.istitle() and word[0].isalpha():
         titlecase_words.append(word)
     elif word.isupper():
         uppercase_words.append(word)
@@ -97,7 +92,7 @@ for word in cleaned_text:
     elif word.isnumeric():
         numbers.append(word) 
     word_lenght = len(word)
-    word_lenghts[word_lenght] = word_lenghts.get(word_lenght,0) + 1       
+    word_lenghts[word_lenght] = word_lenghts.get(word_lenght, 0) + 1       
 
 titlecase_word_count = len(titlecase_words)
 uppercase_word_count = len(uppercase_words)
