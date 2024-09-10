@@ -9,9 +9,9 @@ První projekt v Python akademii Engeto
 - pokud je uživatel registrovaný, pozdraví a umožní analýzu textů
 - pokud uživatel není registrovaný, upozorní jej a ukončí se
 
-!(/assets/welcome.png)
+![welcome text](/assets/welcome.png)
 
-!(/assets/unregistered.png)
+![unregistered user](/assets/unregistered.png)
 
 - program nechá uživatele vybrat mezi třemi texty, uloženými v proměnné TEXTS:
 
@@ -28,4 +28,4 @@ počet čísel (ne cifer),
 sumu všech čísel (ne cifer) v textu.
 Program zobrazí jednoduchý sloupcový graf, který bude reprezentovat četnost různých délek slov v textu
 
-!(/assets/stats.png)
+![statistics from analyzed text](/assets/stats.png)
